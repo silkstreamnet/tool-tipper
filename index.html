@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {background:#eee;}
+		
+    </style>
+</head>
+<body>
+<a href="#" class="tooltipper">Click For Tool!</a>
+
+<script type="text/javascript" src="../../jquery-library/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="tool-tipper-current.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+    	var tooltipper = $('.tooltipper').ToolTipper({
+			content:'stuff',
+			center:true
+		});
+    	$('.tooltipper').click(function(e){
+    		tooltipper.showTip();
+    		setTimeout(function(){tooltipper.hideTip();},500);
+			e.preventDefault();
+    	});
+		
+    });
+
+</script>
+</body>
+</html>
