@@ -9,6 +9,7 @@
     /*
     * things to do
     * - add in "toggle" functionality.
+    * - add in ability to close the tip with an X button.
     */
 
     var toolTippers = [];

@@ -5,10 +5,13 @@
     <style type="text/css">
         body {background:#eee;}
 		.tooltipper {top: 300px; left: 200px; position:absolute; display:block; height:60px; width:120px; line-height:60px; text-align:center; background:#00f;}
-        #tool-tipper-0 {background:#aaa; padding:10px; width:200px; border:1px solid #777;}
+        #tool-tipper-0 {background:#fff; padding:10px; width:200px; border:1px solid #ccc; border-radius:4px; text-align:center; }
     </style>
 </head>
 <body>
+<form action="">
+    <input type="submit" value="1" name="test" id="test-the-tip" />
+</form>
 <a href="#" class="tooltipper">Click For Tool!</a>
 
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
@@ -17,9 +20,23 @@
     $(function(){
 
         $('.tooltipper').ToolTipper({
-            content:'stuff',
+            content:'Please make sure your files are uploaded before continuing.',
+            position:'top-center',
+            offset_top:-10,
+            tipid:''
+        });
+
+
+        $('#test-the-tip').ToolTipper({
+            content:'Please make sure your files are uploaded before continuing.',
             position:'bottom-center',
-            offset_top:10
+            offset_top:10,
+            tipid:'',
+            show:true
+        });
+
+        $('#test-the-tip').click(function(e){
+            e.preventDefault();
         });
 
         var autoRemoveTipper = false;
