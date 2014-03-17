@@ -4,27 +4,33 @@
     <title></title>
     <style type="text/css">
         body {background:#eee;}
-		
+		.tooltipper {top: 300px; left: 200px; position:absolute; display:block; height:60px; width:120px; line-height:60px; text-align:center; background:#00f;}
+        #tool-tipper-0 {background:#aaa; padding:10px; width:200px; border:1px solid #777;}
     </style>
 </head>
 <body>
 <a href="#" class="tooltipper">Click For Tool!</a>
 
-<script type="text/javascript" src="../../jquery-library/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="tool-tipper-current.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="tool-tipper.js"></script>
 <script type="text/javascript">
     $(function(){
 
-    	var tooltipper = $('.tooltipper').ToolTipper({
-			content:'stuff',
-			center:true
-		});
-    	$('.tooltipper').click(function(e){
-    		tooltipper.showTip();
-    		setTimeout(function(){tooltipper.hideTip();},500);
-			e.preventDefault();
-    	});
-		
+        $('.tooltipper').ToolTipper({
+            content:'stuff',
+            position:'bottom-center',
+            offset_top:10
+        });
+
+        var autoRemoveTipper = false;
+        $('.tooltipper').click(function(e){
+            var _this = $(this);
+            if (autoRemoveTipper !== false) clearTimeout(autoRemoveTipper);
+            else _this.ToolTipper('show');
+            autoRemoveTipper = setTimeout(function(){_this.ToolTipper('hide'); autoRemoveTipper = false;},2000);
+            e.preventDefault();
+        });
+
     });
 
 </script>
