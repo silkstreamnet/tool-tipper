@@ -21,6 +21,13 @@ If you plan to use ToolTipper dynamically (e.g. onclick show and fade out in 5 s
 
 View index.html for example code.
 
+@@@@@
+Plans
+@@@@@
+
+- Add new position: 'fit'
+- Add new option: 'fit_preference' with values: 'vertical' or 'horizontal'
+- Change the way the tip is added to document, remove when goes away
 
 
 @@@@@@@
